@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-use APP\Controller\{
+use App\Controller\{
     AlunoController,
     InicialController,
     LoginController,
@@ -12,14 +12,15 @@ use APP\Controller\{
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-switch($url) 
-{ 
+switch($url)
+{
     case '/':
         InicialController::index();
     break;
 
-    /** rotas para login */
-
+    /**
+     * Rotas para Login
+     */
     case '/login':
         LoginController::index();
     break;
@@ -28,8 +29,9 @@ switch($url)
         LoginController::logout();
     break;
 
-    /** rotas para aluno */
-
+    /**
+     * Rotas para alunos
+     */
     case '/aluno':
         AlunoController::index();
     break;
@@ -42,7 +44,9 @@ switch($url)
         AlunoController::delete();
     break;
 
-    /** rotas para autores */
+    /**
+     * Rotas para autores
+     */
 
     case '/autor':
         AutorController::index();
@@ -53,10 +57,12 @@ switch($url)
     break;
 
     case '/autor/delete':
-        AutorController::delete();
+        AlunoController::delete();
     break;
 
-    /** rotas para categorias */
+    /**
+     * Rotas para categorias
+     */    
 
     case '/categoria':
         CategoriaController::index();
@@ -70,9 +76,11 @@ switch($url)
         CategoriaController::delete();
     break;
 
-    /** rotas para livros */
+    /**
+     * Rotas para livros
+     */
 
-    case '/livro':
+     case '/livro':
         LivroController::index();
     break;
 
@@ -84,23 +92,19 @@ switch($url)
         LivroController::delete();
     break;
 
-    /** rotas de emprestimo */
+    /**
+     * Rotas para emprestimo
+     */
 
-    case '/emprestimo':
+    case "/emprestimo":
         EmprestimoController::index();
     break;
 
-    case'/emprestimo/cadastro':
+    case "/emprestimo/cadastro":
         EmprestimoController::cadastro();
     break;
 
-    case '/emprestimo/delete':
+    case "/emprestimo/delete":
         EmprestimoController::delete();
     break;
-
-
 }
-
-
-
-?>
